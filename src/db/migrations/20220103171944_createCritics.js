@@ -1,7 +1,6 @@
-
 exports.up = function(knex) {
     return knex.schema.createTable("critics", (table) => {
-        table.increments("critics_id").primary(); // Sets supplier_id as the primary key
+        table.increments("critic_id").primary(); // Sets supplier_id as the primary key
         table.string("preferred_name");
         table.string("surname");
         table.string("organization_name");
