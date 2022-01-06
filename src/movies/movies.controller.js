@@ -23,7 +23,21 @@ function read(req, res){
     res.json({data:movie})
 }
 
+async function readTheaters(req, res){
+    const {movieId} = res.locals;
+    const theaters = await moviesService.readTheaters(movieId);
+    res.json({data: theaters})
+}
+
+async function readReviews(req, res){
+    const {movieId} = res.locals;
+    const reviews = await moviesService.readReviews(movieId);
+    res.json({data: reviews})
+}
+
 module.exports = {
   read: [asyncErrorBoundary(movieExists), read],
+  readTheaters: [asyncErrorBoundary(movieExists), asyncErrorBoundary(readTheaters)],
+  readReviews: [asyncErrorBoundary(movieExists), asyncErrorBoundary(readReviews)],
   list: asyncErrorBoundary(list),
 };
