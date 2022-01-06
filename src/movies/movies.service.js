@@ -4,12 +4,12 @@ const mapProperties = require("../utils/map-properties");
 function list(is_showing){
     return knex("movies")
     .select("movies.*")
-    .modify((queryBuilder) => 
+    .modify((queryBuilder) => {
         if(is_showing){
             queryBuilder.join("movies_theaters", "movies.movies_id", "movies_theaters.movie_id")
             .where({"movies_theaters.is_showing": true})
             .groupBy("movies.movies_id")
-        }
+        }}
     )
 }
 
