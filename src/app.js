@@ -15,6 +15,10 @@ app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/theaters", theatersRouter);
 
+app.use(function notFound(request, response, next) {
+    console.log("app error", request.body)  
+      next({ status: 404, message: `Path not found: ${request.originalUrl}` });
+    });
 app.use(notFound);
 app.use(errorHandler);
 
