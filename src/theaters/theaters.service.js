@@ -13,5 +13,6 @@ function addMovies(theaterId) {
 }
 
 module.exports = {
-    list, addMovies,
+    list, 
+    addMovies,
 }
