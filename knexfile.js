@@ -1,7 +1,6 @@
 const path = require("path");
 
-if (process.env.USER) 
-require("dotenv").config();
+if (process.env.USER) require("dotenv").config();
 
 const {
   DATABASE_URL = "postgresql://postgres@localhost/postgres",
